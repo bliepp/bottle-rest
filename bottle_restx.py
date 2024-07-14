@@ -118,9 +118,6 @@ class API(bottle.Bottle):
         """
         Remove SwaggerUI documentation site for the API this is called on.
         """
-        if "/" in self.router.builder.keys():
-            del self.router.builder["/"]
-        if "/" in self.router.static["GET"].keys():
-            del self.router.static["GET"]["/"]
+        self.router.builder.pop("/", None)
+        self.router.static["GET"].pop("/", None)
         del self.routes[0]
-        pass

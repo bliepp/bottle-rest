@@ -119,5 +119,5 @@ class API(bottle.Bottle):
         Remove SwaggerUI documentation site for the API this is called on.
         """
         self.router.builder.pop("/", None)
-        self.router.static["GET"].pop("/",, None)
+        self.router.static["GET"].pop("/", None)
         del self.routes[0]
